@@ -30,3 +30,12 @@ class Player(pygame.sprite.Sprite):
         self.screen = screen
         pygame.draw.polygon(screen, "white", self.triangle(), width=2)
 
+    def update(self, dt):
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_LEFT]:
+            self.rotation += dt * 300
+        if keys[pygame.K_RIGHT]:
+            self.rotation -= dt * 300
+        if keys[pygame.K_UP]:
+            self.velocity += pygame.Vector2(0, -1).rotate(self.rotation) * dt * 200
