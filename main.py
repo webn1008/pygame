@@ -11,15 +11,16 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
-    pygame.display.flip()
-    Player.draw(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2, radius = PLAYER_RADIUS)
+    screen.fill("black")
+    player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2, radius = 2, PLAYER_RADIUS = 20)
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        screen.fill("black")
-        Player.draw(screen)
+
+        player.draw(screen)
+        pygame.display.flip()
         # 60 frames per second
         dt = clock.tick(60) / 1000
 

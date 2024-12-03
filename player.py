@@ -27,6 +27,6 @@ class Player(pygame.sprite.Sprite):
 
     def draw(self, screen):
         # Override from CircleShape
-        screen.fill("white")
+        self.screen = screen
         pygame.draw.polygon(screen, "white", self.triangle(), width=2)
 
