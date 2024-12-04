@@ -12,7 +12,7 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
     screen.fill("black")
-    player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2, radius = 2, PLAYER_RADIUS = 20)
+    player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2, radius = 2, PLAYER_RADIUS = 20, PLAYER_SPEED = PLAYER_SPEED)
 
     while True:
         for event in pygame.event.get():
