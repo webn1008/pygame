@@ -3,7 +3,9 @@ import pygame
 from constants import *
 from circleshape import *
 from player import *
-
+updatable = pygame.sprite.Group()
+drawable = pygame.sprite.Group()
+Player.containers = (updatable, drawable)
 def main():
     pygame.init()
     SCREEN_WIDTH = 1280
@@ -18,9 +20,12 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-
-        player.draw(screen)
-        player.update(dt)
+        for player in updatable:
+            updatable.update(dt)
+        for player in drawable:
+            drawable.draw(screen)
+        # player.draw(screen)
+        # player.update(dt)
         pygame.display.flip()
         # 60 frames per second
         dt = clock.tick(60) / 1000
