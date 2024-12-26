@@ -29,7 +29,7 @@ class Player(CircleShape):
         self.rotation += PLAYER_TURN_SPEED * dt
 
     def shoot(self):
-        if self.shoot_timer > 0:
+        if self.shooot_timer > 0:
             return
         self.shoot_timer = PLAYER_SHOOT_COOLDOWN
         shots = Shot(self.position.x, self.position.y)
